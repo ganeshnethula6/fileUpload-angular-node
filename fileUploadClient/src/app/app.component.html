@@ -1,0 +1,110 @@
+<div class="container mt-5 pt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col mb-xl-5">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center m-auto">
+            <h4 class="text-uppercase text-center">JOB APPLICATION</h4>
+          </div>
+          <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div class="row">
+              <div class="form-group mb-3 col">
+                <label for="fname">FIRST NAME </label>
+                <input type="text" ngModel name="fname" placeholder="First Name" class="form-control" required>
+              </div>
+              <div class="form-group mb-3 col">
+                <label for="lname">LAST NAME </label>
+                <input type="text" ngModel name="lname" placeholder="Last Name" class="form-control" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group mb-3 col">
+                <label for="dob">DOB </label>
+                <input type="date" ngModel name="dob" placeholder="Date of Birth" class="form-control" required>
+              </div>
+              <div class="form-group mb-3 col">
+                <label for="gender">Gender </label>
+                <select name="gender" id="gender" ngModel class="form-control" required>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group mb-3 col">
+                <label for="emailaddress">EMAIL </label>
+                <input type="email" ngModel name="email" placeholder="Enter Email" email class="form-control" required>
+              </div>
+              <div class="form-group mb-3 col">
+                <label for="phoneNumber">Phone Number</label>
+                <div class="input-group bg-light">
+                  <input type="text" maxlength="10" phone ngModel class="form-control" id="phoneNumber" value="" name="phoneNumber"
+                    placeholder="Enter Phone Number" required="">
+                </div>
+              </div>
+              <div class="form-group mb-3 col">
+                <label for="city">City</label>
+                <div class="input-group bg-light" >
+                  <input type="text" ngModel class="form-control" id="city" name="city"
+                    placeholder="Enter City" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group mb-3 col">
+                <label for="address">Address </label>
+                <input type="text" ngModel name="address" placeholder="HNo:-4-65, street,..." class="form-control" required>
+              </div>
+              <div class="form-group mb-3 col">
+                <label for="pincode">Pincode </label>
+                <input type="text" maxlength="5" ngModel name="pincode" placeholder="pincode" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group mb-3 col">
+                <label for="profileImage">Upload Profile Picture </label>
+                <input type="file" ngModel name="profileImage" #profileImage="ngModel" (change)="changeProfileImage($event)" placeholder="Profile Image" class="form-control" required>
+                <span class="text-danger" *ngIf="!imageValid && profileImage.touched">Please upload correct file format. Image should be .png ,< 1Mb and diminsion 400 x 300</span>
+              </div>
+            
+              <div class="form-group mb-3 col">
+                <label for="resume">Upload Resume </label>
+                <input type="file" ngModel name="resume" #resume="ngModel" (change)="changResume($event)" placeholder="Resume" class="form-control" required>
+                <span class="text-danger" *ngIf="!resumeValid && resume.touched">Please upload correct file format. resume should be .pdf or .docx</span>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="form-group mb-3 col">
+                <label for="passoutYear">Passout Year</label>
+                <input type="text" maxlength="4" ngModel name="passoutYear" placeholder="Enter Passout Year" class="form-control" required>
+              </div>
+              <div class="form-group mb-3 col">
+                <label for="stream">Stream</label>
+                <div class="input-group bg-light">
+                  <input type="text" ngModel class="form-control" id="stream"name="stream"
+                    placeholder="Ex: BTech/MSC.." required="">
+                </div>
+              </div>
+              <div class="form-group mb-3 col">
+                <label for="primarySkill">Primary Skill</label>
+                <div class="input-group bg-light">
+                  <input type="text" ngModel class="form-control" id="primarySkill" name="primarySkill"
+                    placeholder="Enter Primary Skill" required="">
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label class="custom-checkbox"><input type="checkbox" ngModel name="policyAgree"><span class="checkmark"> I Aree to
+                  the companys policy's</span></label>
+            </div>
+            <div class="form-group mb-0 d-flex justify-content-between">
+              <button class="btn btn-primary btn-block" [disabled]="form.invalid && !this.imageValid && !this.resumeValid" type="submit" name="submit" id="submit">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
